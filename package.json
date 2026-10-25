@@ -1,0 +1,15 @@
+{
+  "name": "tug-of-war-relay",
+  "version": "1.0.0",
+  "description": "Tiny WebSocket relay that pairs two Tug of War Masters players and forwards their messages.",
+  "main": "relay_server.js",
+  "scripts": {
+    "start": "node relay_server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
