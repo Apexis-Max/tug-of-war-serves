@@ -16,10 +16,16 @@
  *   {op:'ping'}                              {op:'pong'}
  *                                            {op:'peer_left'}
  *
+ * Besides the relay, this process also serves the global ranking over plain
+ * HTTP (see leaderboard.js): POST /lb/submit and GET /lb/top.
+ *
  * Run:   npm install && npm start            (PORT=8080 by default)
  */
 const http = require('http');
 const { WebSocketServer } = require('ws');
+const leaderboard = require('./leaderboard');
+
+const lbHandle = leaderboard.createHandler(leaderboard.makeStore());
 
 const PORT = Number(process.env.PORT) || 8080;
 const MAX_PAYLOAD = 16 * 1024; // a whole round of questions is ~3 KB
@@ -36,6 +42,10 @@ let queue = [];
 // health check, and the app calls it first to wake a sleeping (free-plan)
 // server before opening the WebSocket.
 const server = http.createServer((req, res) => {
+  if ((req.url || '').startsWith('/lb/')) {
+    lbHandle(req, res);
+    return;
+  }
   const path = (req.url || '/').split('?')[0];
   if (path === '/' || path === '/health') {
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
