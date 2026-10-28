@@ -1,0 +1,19 @@
+{
+  "_note": "Words are compared after normalisation (lowercase, accents/leetspeak folded, symbols removed, runs of 3+ equal letters shortened). 'substr' = blocked anywhere inside the name (use only long, unambiguous words). 'token' = blocked only when it is a whole word of the name (or the whole name). Not exhaustive: it is a first filter, the in-app Report button is the second.",
+  "substr": [
+    "fucker", "fucking", "motherfucker", "asshole", "bitch", "bastard", "whore", "pussy",
+    "dickhead", "cocksucker", "nigger", "nigga", "faggot", "retard", "rapist", "pedophile",
+    "paedophile", "hitler", "blowjob", "handjob", "cumshot", "wanker", "bollocks", "pornhub",
+    "xvideos", "xnxx",
+    "putain", "salope", "connard", "connasse", "enculer", "encule", "batard", "merde",
+    "bougnoule", "youpin", "couille", "sperme", "filsdepute", "niquetamere", "niquetamre",
+    "شرموط", "قحبه", "عاهره", "منيوك", "متناك", "ابنالكلب", "نعلالدين", "نعلدين",
+    "دينامك", "دينمك", "كسامك", "كسمك", "كسختك", "هتلر"
+  ],
+  "token": [
+    "fuck", "shit", "slut", "cunt", "ass", "sex", "porn", "porno", "rape", "nazi", "anal", "cum",
+    "kys", "fag", "nig", "twat", "dildo", "tits", "boobs", "penis", "vagina",
+    "pute", "fdp", "ntm", "nique", "niquer", "negre",
+    "نيك", "ناك", "طيز", "سكس", "خول", "عرص", "لوطي", "زب", "كس", "كسم", "بزاز"
+  ]
+}
